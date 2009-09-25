@@ -20,48 +20,64 @@ import org.easymock.classextension.EasyMock;
 import org.springframework.beans.factory.FactoryBean;
 
 /**
- * The bean definition parser for the EasyMock mock objects.
+ * The factory bean that creates EasyMock mock objects.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version $Rev$
+ * @version 0.1.0
  */
-public class MockFactoryBean implements FactoryBean {
+public class MockFactoryBean
+    implements FactoryBean
+{
+    /**
+     * The interface or class to be mocked.
+     */
+    @SuppressWarnings("unchecked")
+    private Class objectClass;
 
-	@SuppressWarnings("unchecked")
-	private Class objectClass;
+    /**
+     * The constructor.
+     * 
+     * @param objectClass
+     *            The interface or class to be mocked.
+     */
+    @SuppressWarnings("unchecked")
+    public MockFactoryBean(final Class objectClass)
+    {
+        this.objectClass = objectClass;
+    }
 
-	/**
-	 * The default constructor.
-	 */
-	@SuppressWarnings("unchecked")
-	public MockFactoryBean(final Class objectClass) {
-		this.objectClass = objectClass;
-	}
+    /**
+     * Create the mock object.
+     * 
+     * @return The mock object.
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Object getObject()
+    {
+        return EasyMock.createMock(this.objectClass);
+    }
 
-	/**
-	 * @return
-	 * @throws Exception
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public Object getObject() throws Exception {
-		return EasyMock.createMock(this.objectClass);
-	}
+    /**
+     * Return the interface or class that will be mocked.
+     * 
+     * @return The interface or class.
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Class getObjectType()
+    {
+        return this.objectClass;
+    }
 
-	/**
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public Class getObjectType() {
-		return this.objectClass;
-	}
-
-	/**
-	 * @return Always returns <code>false</code>.
-	 */
-	@Override
-	public boolean isSingleton() {
-		return true;
-	}
+    /**
+     * Indicate that mock objects created by this factory are singletons.
+     * 
+     * @return Always returns <code>true</code>.
+     */
+    @Override
+    public boolean isSingleton()
+    {
+        return true;
+    }
 }

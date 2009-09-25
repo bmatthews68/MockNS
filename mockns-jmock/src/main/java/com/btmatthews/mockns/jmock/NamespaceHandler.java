@@ -19,22 +19,31 @@ package com.btmatthews.mockns.jmock;
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
 /**
- * The name-space hander for the EasyMock.
+ * The name-space hander for the jMock.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
  * @version $Rev$
  */
-public class NamespaceHandler extends NamespaceHandlerSupport {
+public class NamespaceHandler
+    extends NamespaceHandlerSupport
+{
+    /**
+     * The default constructor.
+     */
+    public NamespaceHandler()
+    {
+    }
 
-	/**
-	 * @see org.springframework.beans.factory.xml.NamespaceHandler#init()
-	 */
-	@Override
-	public void init() {
-		this.registerBeanDefinitionParser("mock",
-				new MockBeanDefinitionParser());
-		this.registerBeanDefinitionParser("mockery",
-				new MockeryBeanDefinitionParser());
-	}
+    /**
+     * Register the bean definition parsers for the name-space.
+     * 
+     * @see org.springframework.beans.factory.xml.NamespaceHandler#init()
+     */
+    @Override
+    public void init()
+    {
+        this.registerBeanDefinitionParser("mock", new MockBeanDefinitionParser());
+        this.registerBeanDefinitionParser("mockery", new MockeryBeanDefinitionParser());
+    }
 
 }

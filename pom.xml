@@ -17,6 +17,13 @@
 	<description></description>
 	<url>http://mockns.btmatthews.com</url>
 	<inceptionYear>2009</inceptionYear>
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 	<reporting>
 		<plugins>
 			<plugin>
@@ -127,31 +134,6 @@
 			<timezone>0</timezone>
 		</developer>
 	</developers>
-	<repositories>
-		<repository>
-			<id>internal.btmatthews.com</id>
-			<name>Internal @ Brian Thomas Matthews Limited</name>
-			<url>https://archiva.btmatthews.com/repository/internal/</url>
-		</repository>
-		<repository>
-			<id>snapshots.btmatthews.com</id>
-			<name>Snapshots @ Brian Thomas Matthews Limited</name>
-			<url>https://archiva.btmatthews.com/repository/snapshots/</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>ignore</checksumPolicy>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>releases.btmatthews.com</id>
-			<name>Releases @ Brian Thomas Matthews Limited</name>
-			<url>https://archiva.btmatthews.com/repository/releases/</url>
-		</repository>
-	</repositories>
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -239,7 +221,7 @@
 			<dependency>
 				<groupId>org.easymock</groupId>
 				<artifactId>easymock</artifactId>
-				<version>2.4</version>
+				<version>2.5.2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.easymock</groupId>
@@ -256,7 +238,7 @@
 			<dependency>
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-core</artifactId>
-				<version>1.7</version>
+				<version>1.8.0</version>
 			</dependency>
 			<!-- JUnit -->
 			<dependency>
@@ -266,4 +248,11 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<distributionManagement>
+		<site>
+			<id>mockns.btmatthews.com</id>
+			<name>MockNS Site</name>
+			<url>scp://btmatthews.com/var/www/mockns.btmatthews.com</url>
+		</site>
+	</distributionManagement>
 </project>

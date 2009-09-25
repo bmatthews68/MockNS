@@ -24,42 +24,57 @@ import org.w3c.dom.Element;
  * The bean definition parser for the EasyMock mock objects.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version $Rev$
+ * @version 0.1.0
  */
-public class MockBeanDefinitionParser extends
-		AbstractSingleBeanDefinitionParser {
+public class MockBeanDefinitionParser
+    extends AbstractSingleBeanDefinitionParser
+{
+    /**
+     * The default constructor.
+     */
+    public MockBeanDefinitionParser()
+    {
+    }
 
-	/**
-	 * The default constructor.
-	 */
-	public MockBeanDefinitionParser() {
-	}
+    /**
+     * Parse an XML bean definition.
+     * 
+     * @param element
+     *            The element that defines the bean.
+     * @param builder
+     *            Helps build the bean definition.
+     * @see org.springframework.beans.factory.xml.AbstractBeanDefinitionParser#doParse(org.w3c.dom.Element,org.springframework.beans.factory.support.BeanDefinitionBuilder)
+     */
+    @Override
+    protected void doParse(final Element element, final BeanDefinitionBuilder builder)
+    {
+        final String objectClass = element.getAttribute("object-class");
+        builder.addConstructorArgValue(objectClass);
+    }
 
-	/**
-	 * @param element
-	 * @param builder
-	 */
-	@Override
-	protected void doParse(final Element element,
-			final BeanDefinitionBuilder builder) {
-		final String objectClass = element.getAttribute("object-class");
-		builder.addConstructorArgValue(objectClass);
-		final String mockery = element.getAttribute("mockery");
-		if (mockery != null) {
-			builder.addConstructorArgReference(mockery);
-		} else {
-			builder.addConstructorArgReference("mockery");
-		}
-	}
+    /**
+     * Get class of the factory used to create the beans.
+     * 
+     * @return Always returns {@link MockFactoryBean}.
+     * @see org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser#getBeanClass(org.w3c.dom.Element)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Class getBeanClass(final Element element)
+    {
+        return MockFactoryBean.class;
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	protected Class getBeanClass(final Element element) {
-		return MockFactoryBean.class;
-	}
-
-	@Override
-	protected boolean shouldGenerateIdAsFallback() {
-		return true;
-	}
+    /**
+     * Indicate that the bean factory should generate an identifier for the bean
+     * if one is not present.
+     * 
+     * @return Always returns <code>true</code>
+     * @see org.springframework.beans.factory.xml.AbstractBeanDefinitionParser#shouldGenerateIdAsFallback()
+     */
+    @Override
+    protected boolean shouldGenerateIdAsFallback()
+    {
+        return true;
+    }
 }

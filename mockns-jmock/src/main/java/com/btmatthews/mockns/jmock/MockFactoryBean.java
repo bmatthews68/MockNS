@@ -25,46 +25,70 @@ import org.springframework.beans.factory.FactoryBean;
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
  * @version $Rev$
  */
-public class MockFactoryBean implements FactoryBean {
+public class MockFactoryBean
+    implements FactoryBean
+{
+    /**
+     * The interface or class to be mocked.
+     */
+    @SuppressWarnings("unchecked")
+    private Class objectClass;
 
-	@SuppressWarnings("unchecked")
-	private Class objectClass;
+    /**
+     * The context for the mocked objects.
+     */
+    private Mockery mockery;
 
-	private Mockery mockery;
+    /**
+     * The constructor.
+     * 
+     * @param objectClass
+     *            The interface or class to be mocked.
+     * @param mockery
+     *            The context for the mocked objects.
+     */
+    @SuppressWarnings("unchecked")
+    public MockFactoryBean(final Class objectClass, final Mockery mockery)
+    {
+        this.objectClass = objectClass;
+        this.mockery = mockery;
+    }
 
-	/**
-	 * The default constructor.
-	 */
-	@SuppressWarnings("unchecked")
-	public MockFactoryBean(final Class objectClass, final Mockery mockery) {
-		this.objectClass = objectClass;
-		this.mockery = mockery;
-	}
+    /**
+     * Create the mock object.
+     * 
+     * @return The mock object.
+     * @see org.springframework.beans.factory.FactoryBean#getObject()
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Object getObject()
+    {
+        return this.mockery.mock(this.objectClass);
+    }
 
-	/**
-	 * @return
-	 * @throws Exception
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public Object getObject() throws Exception {
-		return this.mockery.mock(this.objectClass);
-	}
+    /**
+     * Return the interface or class that will be mocked.
+     * 
+     * @return The interface or class.
+     * @see org.springframework.beans.factory.FactoryBean#getObjectType()
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Class getObjectType()
+    {
+        return this.objectClass;
+    }
 
-	/**
-	 * @return
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public Class getObjectType() {
-		return this.objectClass;
-	}
-
-	/**
-	 * @return Always returns <code>false</code>.
-	 */
-	@Override
-	public boolean isSingleton() {
-		return true;
-	}
+    /**
+     * Indicate that mock objects created by this factory are singletons.
+     * 
+     * @return Always returns <code>true</code>.
+     * @see org.springframework.beans.factory.FactoryBean#isSingleton()
+     */
+    @Override
+    public boolean isSingleton()
+    {
+        return true;
+    }
 }

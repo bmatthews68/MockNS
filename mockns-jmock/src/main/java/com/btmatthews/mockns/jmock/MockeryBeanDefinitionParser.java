@@ -17,37 +17,36 @@
 package com.btmatthews.mockns.jmock;
 
 import org.jmock.Mockery;
-import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
 import org.w3c.dom.Element;
 
 /**
- * The bean definition parser for the EasyMock mock objects.
+ * The bean definition parser for the jMock mockery context objects.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version $Rev$
+ * @version 0.1.0
  */
-public class MockeryBeanDefinitionParser extends
-		AbstractSingleBeanDefinitionParser {
+public class MockeryBeanDefinitionParser
+    extends AbstractSingleBeanDefinitionParser
+{
 
-	/**
-	 * The default constructor.
-	 */
-	public MockeryBeanDefinitionParser() {
-	}
+    /**
+     * The default constructor.
+     */
+    public MockeryBeanDefinitionParser()
+    {
+    }
 
-	/**
-	 * @param element
-	 * @param builder
-	 */
-	@Override
-	protected void doParse(final Element element,
-			final BeanDefinitionBuilder builder) {
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	protected Class getBeanClass(final Element element) {
-		return Mockery.class;
-	}
+    /**
+     * Get class of the factory used to create the beans.
+     * 
+     * @return Always returns {@link MockFactoryBean}.
+     * @see org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser#getBeanClass(org.w3c.dom.Element)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    protected Class getBeanClass(final Element element)
+    {
+        return Mockery.class;
+    }
 }

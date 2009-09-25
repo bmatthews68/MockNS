@@ -245,17 +245,17 @@
 	</dependencyManagement>
 	<distributionManagement>
 		<site>
-			<id>mockns.btmatthews.com</id>
+			<id>btmatthews.com</id>
 			<name>MockNS Site</name>
 			<url>scp://btmatthews.com/var/www/mockns.btmatthews.com</url>
 		</site>
 		<repository>
-			<id>repository.btmatthews.com</id>
+			<id>btmatthews.com</id>
 			<name>Release Repository</name>
 			<url>scp://btmatthews.com/var/www/repository.btmatthews.com</url>
 		</repository>
 		<snapshotRepository>
-			<id>snapshot.btmatthews.com</id>
+			<id>btmatthews.com</id>
 			<name>Snapshot Repository</name>
 			<url>scp://btmatthews.com/var/www/snapshot.btmatthews.com</url>
 		</snapshotRepository>

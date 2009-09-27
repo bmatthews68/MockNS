@@ -10,7 +10,7 @@
 			<property name="authorFormat"
 				value="^&lt;a href=&quot;mailto:([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})&quot;&gt;([a-zA-Z.\s']{1,50})&lt;/a&gt;$" />
 			<property name="versionFormat"
-				value="^((\d)?(\d{1})(\.{1})(\d)?(\d{1})){1}$" />
+				value="^((\d)?(\d{1})(\.{1})(\d)?(\d{1})){1,2}$" />
 		</module>
 		<module name="JavadocMethod" />
 		<module name="JavadocVariable" />

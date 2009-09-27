@@ -24,9 +24,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
  * @version 0.1.0
  */
-public class Service
+public final class Service
 {
-    /**
+    /**s
      * The mock object is injected.
      */
     @Autowired

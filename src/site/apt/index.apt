@@ -24,17 +24,14 @@
 MockNS
 
   MockNS provides {{{http://www.springframework.org}Spring}} name-space support for
-  creating mock objects using EasyMock, jMock or Mockito.
+  creating mock objects using following frameworks:
+  
+  * EasyMock
+  * jMock 
+  * Mockito.
 
 * MockNS for EasyMock
 
--------------------
-<dependency>
-    <groupId>com.btmatthews.mockns</groupId>
-    <artifactId>mockns-easymock</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-</dependency>
--------------------
 
 * MockNS for jMock
 

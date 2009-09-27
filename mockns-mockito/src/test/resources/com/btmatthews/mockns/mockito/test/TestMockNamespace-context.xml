@@ -8,9 +8,9 @@
 		http://mockns.btmatthews.com/schema/mockito
 		http://mockns.btmatthews.com/schema/mockito/mockito.xsd">
 
-	<mockns:mock id="dependency"
+	<mockns:mock
 		object-class="com.btmatthews.mockns.mockito.test.Dependency" />
 
-	<bean id="service" class="com.btmatthews.mockns.mockito.test.Service" />
+	<bean class="com.btmatthews.mockns.mockito.test.Service" />
 
 </beans>

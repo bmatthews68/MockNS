@@ -24,9 +24,9 @@ import org.w3c.dom.Element;
  * The bean definition parser for the Mockito mock objects.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version $Rev$
+ * @version 0.1.0
  */
-public class MockBeanDefinitionParser
+public final class MockBeanDefinitionParser
     extends AbstractSingleBeanDefinitionParser
 {
     /**
@@ -55,6 +55,8 @@ public class MockBeanDefinitionParser
     /**
      * Get class of the factory used to create the beans.
      * 
+     * @param element
+     *            The element that defines the bean.
      * @return Always returns {@link MockFactoryBean}.
      * @see org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser#getBeanClass(org.w3c.dom.Element)
      */

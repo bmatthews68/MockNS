@@ -24,7 +24,7 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
  * @version 0.1.0
  */
-public class NamespaceHandler
+public final class NamespaceHandler
     extends NamespaceHandlerSupport
 {
     /**

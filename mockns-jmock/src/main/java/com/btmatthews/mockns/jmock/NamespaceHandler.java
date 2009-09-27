@@ -22,9 +22,9 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
  * The name-space hander for the jMock.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version $Rev$
+ * @version 0.1.0
  */
-public class NamespaceHandler
+public final class NamespaceHandler
     extends NamespaceHandlerSupport
 {
     /**

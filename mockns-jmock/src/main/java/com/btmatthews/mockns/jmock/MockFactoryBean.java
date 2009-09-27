@@ -23,9 +23,9 @@ import org.springframework.beans.factory.FactoryBean;
  * The bean definition parser for the EasyMock mock objects.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version $Rev$
+ * @version 0.1.0
  */
-public class MockFactoryBean
+public final class MockFactoryBean
     implements FactoryBean
 {
     /**
@@ -42,16 +42,16 @@ public class MockFactoryBean
     /**
      * The constructor.
      * 
-     * @param objectClass
+     * @param clazz
      *            The interface or class to be mocked.
-     * @param mockery
+     * @param context
      *            The context for the mocked objects.
      */
     @SuppressWarnings("unchecked")
-    public MockFactoryBean(final Class objectClass, final Mockery mockery)
+    public MockFactoryBean(final Class clazz, final Mockery context)
     {
-        this.objectClass = objectClass;
-        this.mockery = mockery;
+        this.objectClass = clazz;
+        this.mockery = context;
     }
 
     /**

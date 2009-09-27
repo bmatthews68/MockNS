@@ -33,7 +33,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
-public class TestMockNamespace
+public final class TestMockNamespace
 {
     /**
      * Used to test the mocked object.

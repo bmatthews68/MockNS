@@ -1,9 +1,9 @@
  ------
- Introduction
+ Usage
  ------
  Brian Matthews
  ------
- 2009-09-28
+ 2009-09-25
  ------
 
 ~~ Copyright (c) 2009 Brian Thomas Matthews
@@ -21,11 +21,18 @@
 ~~ limitations under the License.
 
 
-MockNS
+Usage
 
-  MockNS provides {{{http://www.springframework.org}Spring}} name-space support to
-  creating and configure mock objects for the following frameworks:
+  The following steps describe the usage of the Spring name-space support for Easy Mock.
+
+* Step 1 - Dependency
+
+  Add the following dependency to your POM.
   
-  * {{{http://easymock.org}EasyMock}}
-  * {{{http://www.jmock.org}jMock}}
-  * {{{http://mockito.org}Mockito}}
+-------------------
+<dependency> 
+    <groupId>com.btmatthews.mockns</groupId>
+    <artifactId>mockns-jmock</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+</dependency>
+-------------------

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mockns="http://mockns.btmatthews.com/schema/easymock" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://mockns.btmatthews.com/schema/easymock
+		http://mockns.btmatthews.com/schema/easymock/easymock.xsd">
+
+	<mockns:mock
+		object-class="com.btmatthews.mockns.easymock.test.Dependency" />
+
+	<bean class="com.btmatthews.mockns.easymock.test.Service" />
+
+</beans>

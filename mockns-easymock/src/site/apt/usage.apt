@@ -1,0 +1,65 @@
+ ------
+ Usage
+ ------
+ Brian Matthews
+ ------
+ 2009-09-25
+ ------
+
+~~ Copyright (c) 2009 Brian Thomas Matthews
+~~
+~~ Licensed under the Apache License, Version 2.0 (the "License");
+~~ you may not use this file except in compliance with the License.
+~~ You may obtain a copy of the License at
+~~
+~~     http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+
+
+Usage
+
+  The following steps describe the usage of the Spring name-space support for Easy Mock.
+
+* Step 1 - Dependency
+
+  Add the following dependency to your POM.
+  
+-------------------
+<dependency> 
+    <groupId>com.btmatthews.mockns</groupId>
+    <artifactId>mockns-easymock</artifactId>
+    <version>${pom.version}</version>
+</dependency>
+-------------------
+
+* Step 2 - Include Namespace in your XML
+
+-------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mockns="http://mockns.btmatthews.com/schema/easymock"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://mockns.btmatthews.com/schema/easymock
+		http://mockns.btmatthews.com/schema/easymock/easymock.xsd">
+	.
+	.
+	.
+</beans>	
+-------------------
+
+* Step 3 - Declare your mock object bean
+
+-------------------
+<mockns:mock
+	id="dependency"
+	object-class="com.btmatthews.mockns.easymock.test.Dependency" />
+-------------------

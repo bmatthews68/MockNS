@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Brian Thomas Matthews
+ * Copyright 2009-2011 Brian Matthews
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,24 +24,20 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
  * @version 0.1.0
  */
-public final class NamespaceHandler
-    extends NamespaceHandlerSupport
-{
-    /**
-     * The default constructor.
-     */
-    public NamespaceHandler()
-    {
-    }
+public final class NamespaceHandler extends NamespaceHandlerSupport {
+	/**
+	 * The default constructor.
+	 */
+	public NamespaceHandler() {
+	}
 
-    /**
-     * Register the bean definition parsers for the name-space.
-     * 
-     * @see org.springframework.beans.factory.xml.NamespaceHandler#init()
-     */
-    @Override
-    public void init()
-    {
-        this.registerBeanDefinitionParser("mock", new MockBeanDefinitionParser());
-    }
+	/**
+	 * Register the bean definition parsers for the name-space.
+	 * 
+	 * @see org.springframework.beans.factory.xml.NamespaceHandler#init()
+	 */
+	public void init() {
+		this.registerBeanDefinitionParser("mock",
+				new MockBeanDefinitionParser());
+	}
 }

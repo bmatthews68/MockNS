@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Brian Thomas Matthews
+ * Copyright 2009-2011 Brian Matthews
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -70,7 +70,7 @@ public final class MockBeanDefinitionParser
      * @return Always returns {@link MockFactoryBean}.
      * @see org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser#getBeanClass(org.w3c.dom.Element)
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     @Override
     protected Class getBeanClass(final Element element)
     {

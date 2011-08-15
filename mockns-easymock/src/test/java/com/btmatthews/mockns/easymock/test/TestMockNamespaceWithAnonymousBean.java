@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Brian Thomas Matthews
+ * Copyright 2009-2011 Brian Matthews
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package com.btmatthews.mockns.easymock.test;
 
-import org.easymock.classextension.EasyMock;
+import org.easymock.EasyMock;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

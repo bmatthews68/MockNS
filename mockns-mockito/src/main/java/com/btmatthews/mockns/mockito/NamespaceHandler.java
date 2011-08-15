@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Brian Thomas Matthews
+ * Copyright 2009-2011 Brian Matthews
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,6 @@ public final class NamespaceHandler
      * 
      * @see org.springframework.beans.factory.xml.NamespaceHandler#init()
      */
-    @Override
     public void init()
     {
         this.registerBeanDefinitionParser("mock", new MockBeanDefinitionParser());

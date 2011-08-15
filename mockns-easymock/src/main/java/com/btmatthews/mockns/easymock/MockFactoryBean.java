@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Brian Thomas Matthews
+ * Copyright 2009-2011 Brian Matthews
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package com.btmatthews.mockns.easymock;
 
-import org.easymock.classextension.EasyMock;
+import org.easymock.EasyMock;
 import org.springframework.beans.factory.FactoryBean;
 
 /**
@@ -25,59 +25,46 @@ import org.springframework.beans.factory.FactoryBean;
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
  * @version 0.1.0
  */
-public final class MockFactoryBean
-    implements FactoryBean
-{
-    /**
-     * The interface or class to be mocked.
-     */
-    @SuppressWarnings("unchecked")
-    private Class objectClass;
+public final class MockFactoryBean<T> implements FactoryBean<T> {
+	/**
+	 * The interface or class to be mocked.
+	 */
+	private Class<T> objectClass;
 
-    /**
-     * The constructor.
-     * 
-     * @param clazz
-     *            The interface or class to be mocked.
-     */
-    @SuppressWarnings("unchecked")
-    public MockFactoryBean(final Class clazz)
-    {
-        this.objectClass = clazz;
-    }
+	/**
+	 * The constructor.
+	 * 
+	 * @param clazz
+	 *            The interface or class to be mocked.
+	 */
+	public MockFactoryBean(final Class<T> clazz) {
+		this.objectClass = clazz;
+	}
 
-    /**
-     * Create the mock object.
-     * 
-     * @return The mock object.
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public Object getObject()
-    {
-        return EasyMock.createMock(this.objectClass);
-    }
+	/**
+	 * Create the mock object.
+	 * 
+	 * @return The mock object.
+	 */
+	public T getObject() {
+		return EasyMock.createMock(this.objectClass);
+	}
 
-    /**
-     * Return the interface or class that will be mocked.
-     * 
-     * @return The interface or class.
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public Class getObjectType()
-    {
-        return this.objectClass;
-    }
+	/**
+	 * Return the interface or class that will be mocked.
+	 * 
+	 * @return The interface or class.
+	 */
+	public Class<?> getObjectType() {
+		return this.objectClass;
+	}
 
-    /**
-     * Indicate that mock objects created by this factory are singletons.
-     * 
-     * @return Always returns <code>true</code>.
-     */
-    @Override
-    public boolean isSingleton()
-    {
-        return true;
-    }
+	/**
+	 * Indicate that mock objects created by this factory are singletons.
+	 * 
+	 * @return Always returns <code>true</code>.
+	 */
+	public boolean isSingleton() {
+		return true;
+	}
 }

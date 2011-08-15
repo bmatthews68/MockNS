@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Brian Thomas Matthews
+ * Copyright 2009-2011 Brian Matthews
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,14 +25,13 @@ import org.springframework.beans.factory.FactoryBean;
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
  * @version 0.1.0
  */
-public final class MockFactoryBean
-    implements FactoryBean
+public final class MockFactoryBean<T>
+    implements FactoryBean<T>
 {
     /**
      * The interface or class to be mocked.
      */
-    @SuppressWarnings("unchecked")
-    private Class objectClass;
+    private Class<T> objectClass;
 
     /**
      * The constructor.
@@ -40,8 +39,7 @@ public final class MockFactoryBean
      * @param clazz
      *            The interface or class to be mocked.
      */
-    @SuppressWarnings("unchecked")
-    public MockFactoryBean(final Class clazz)
+    public MockFactoryBean(final Class<T> clazz)
     {
         this.objectClass = clazz;
     }
@@ -52,9 +50,7 @@ public final class MockFactoryBean
      * @return The mock object.
      * @see org.springframework.beans.factory.FactoryBean#getObject()
      */
-    @SuppressWarnings("unchecked")
-    @Override
-    public Object getObject()
+    public T getObject()
     {
         return Mockito.mock(this.objectClass);
     }
@@ -65,9 +61,7 @@ public final class MockFactoryBean
      * @return The interface or class.
      * @see org.springframework.beans.factory.FactoryBean#getObjectType()
      */
-    @SuppressWarnings("unchecked")
-    @Override
-    public Class getObjectType()
+    public Class<T> getObjectType()
     {
         return this.objectClass;
     }
@@ -78,7 +72,6 @@ public final class MockFactoryBean
      * @return Always returns <code>true</code>.
      * @see org.springframework.beans.factory.FactoryBean#isSingleton()
      */
-    @Override
     public boolean isSingleton()
     {
         return true;

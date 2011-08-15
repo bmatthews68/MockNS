@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009 Brian Thomas Matthews
+ * Copyright 2009-2011 Brian Matthews
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,57 +26,53 @@ import org.w3c.dom.Element;
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
  * @version 0.1.0
  */
-public final class MockBeanDefinitionParser
-    extends AbstractSingleBeanDefinitionParser
-{
-    /**
-     * The default constructor.
-     */
-    public MockBeanDefinitionParser()
-    {
-    }
+public final class MockBeanDefinitionParser extends
+		AbstractSingleBeanDefinitionParser {
+	/**
+	 * The default constructor.
+	 */
+	public MockBeanDefinitionParser() {
+	}
 
-    /**
-     * Parse an XML bean definition.
-     * 
-     * @param element
-     *            The element that defines the bean.
-     * @param builder
-     *            Helps build the bean definition.
-     * @see org.springframework.beans.factory.xml.AbstractBeanDefinitionParser#doParse(org.w3c.dom.Element,org.springframework.beans.factory.support.BeanDefinitionBuilder)
-     */
-    @Override
-    protected void doParse(final Element element, final BeanDefinitionBuilder builder)
-    {
-        final String objectClass = element.getAttribute("object-class");
-        builder.addConstructorArgValue(objectClass);
-    }
+	/**
+	 * Parse an XML bean definition.
+	 * 
+	 * @param element
+	 *            The element that defines the bean.
+	 * @param builder
+	 *            Helps build the bean definition.
+	 * @see org.springframework.beans.factory.xml.AbstractBeanDefinitionParser#doParse(org.w3c.dom.Element,org.springframework.beans.factory.support.BeanDefinitionBuilder)
+	 */
+	@Override
+	protected void doParse(final Element element,
+			final BeanDefinitionBuilder builder) {
+		final String objectClass = element.getAttribute("object-class");
+		builder.addConstructorArgValue(objectClass);
+	}
 
-    /**
-     * Get class of the factory used to create the beans.
-     * 
-     * @param element
-     *            The element that defines the bean.
-     * @return Always returns {@link MockFactoryBean}.
-     * @see org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser#getBeanClass(org.w3c.dom.Element)
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    protected Class getBeanClass(final Element element)
-    {
-        return MockFactoryBean.class;
-    }
+	/**
+	 * Get class of the factory used to create the beans.
+	 * 
+	 * @param element
+	 *            The element that defines the bean.
+	 * @return Always returns {@link MockFactoryBean}.
+	 * @see org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser#getBeanClass(org.w3c.dom.Element)
+	 */
+	@SuppressWarnings("rawtypes")
+	@Override
+	protected Class getBeanClass(final Element element) {
+		return MockFactoryBean.class;
+	}
 
-    /**
-     * Indicate that the bean factory should generate an identifier for the bean
-     * if one is not present.
-     * 
-     * @return Always returns <code>true</code>
-     * @see org.springframework.beans.factory.xml.AbstractBeanDefinitionParser#shouldGenerateIdAsFallback()
-     */
-    @Override
-    protected boolean shouldGenerateIdAsFallback()
-    {
-        return true;
-    }
+	/**
+	 * Indicate that the bean factory should generate an identifier for the bean
+	 * if one is not present.
+	 * 
+	 * @return Always returns <code>true</code>
+	 * @see org.springframework.beans.factory.xml.AbstractBeanDefinitionParser#shouldGenerateIdAsFallback()
+	 */
+	@Override
+	protected boolean shouldGenerateIdAsFallback() {
+		return true;
+	}
 }

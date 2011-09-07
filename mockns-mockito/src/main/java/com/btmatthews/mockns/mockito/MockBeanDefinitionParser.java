@@ -24,7 +24,7 @@ import org.w3c.dom.Element;
  * The bean definition parser for the Mockito mock objects.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version 0.1.0
+ * @version 1.0.0
  */
 public final class MockBeanDefinitionParser
     extends AbstractSingleBeanDefinitionParser

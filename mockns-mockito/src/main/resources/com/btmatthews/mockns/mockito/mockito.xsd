@@ -42,4 +42,23 @@
             </xsd:complexContent>
         </xsd:complexType>
     </xsd:element>
+    <xsd:element
+        name="spy">
+        <xsd:annotation>
+            <xsd:documentation><![CDATA[
+    Create an Mockito spy bean.
+            ]]></xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension
+                    base="beans:identifiedType">
+                    <xsd:attribute
+                        name="object-class"
+                        type="xsd:string"
+                        use="required" />
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
 </xsd:schema>

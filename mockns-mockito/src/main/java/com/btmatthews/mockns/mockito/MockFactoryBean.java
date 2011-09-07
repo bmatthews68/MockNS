@@ -23,7 +23,7 @@ import org.springframework.beans.factory.FactoryBean;
  * The bean definition parser for the EasyMock mock objects.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version 0.1.0
+ * @version 1.0.0
  */
 public final class MockFactoryBean<T>
     implements FactoryBean<T>

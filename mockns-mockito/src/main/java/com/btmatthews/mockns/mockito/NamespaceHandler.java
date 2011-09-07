@@ -22,7 +22,7 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
  * The name-space hander for the Mockito.
  * 
  * @author <a href="mailto:brian@btmatthews.com">Brian Matthews</a>
- * @version 0.1.0
+ * @version 1.0.0
  */
 public final class NamespaceHandler
     extends NamespaceHandlerSupport
@@ -42,6 +42,7 @@ public final class NamespaceHandler
     public void init()
     {
         this.registerBeanDefinitionParser("mock", new MockBeanDefinitionParser());
+        this.registerBeanDefinitionParser("spy", new SpyBeanDefinitionParser());
     }
 
 }
